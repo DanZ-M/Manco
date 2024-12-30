@@ -136,6 +136,11 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
 	};
 };
 
+pro_micro_d: &pro_micro {};
+pro_micro_i2c: &i2c0 {};
+pro_micro_spi: &spi0 {};
+pro_micro_serial: &uart0 {};
+
 &adc {
 	status = "okay";
 };
@@ -153,10 +158,12 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
 };
 
 &i2c0 {
-	compatible = "nordic,nrf-twi";
+    compatible = "nordic,nrf-twi";
+    clock-frequency = <I2C_BITRATE_FAST>;
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
+
 };
 
 &uart0 {
@@ -248,7 +255,4 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
     };
 };
 
-pro_micro_d: &pro_micro {};
-pro_micro_i2c: &i2c0 {};
-pro_micro_spi: &spi0 {};
-pro_micro_serial: &uart0 {};
+
