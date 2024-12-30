@@ -13,8 +13,8 @@
 #
 ---
 include:
-  - board: mango_right
-  - board: mango_left
+  - board: cornez_right
+  - board: cornez_left
 #  - board: nice_nano_v2
 #    shield: corne_right
 #  - board: nice_nano_v2
