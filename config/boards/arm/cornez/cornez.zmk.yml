@@ -1,6 +1,6 @@
 file_format: "1"
-id: mango
-name: Mango
+id: cornez
+name: cornez
 type: keyboard
 url: N/A
 arch: arm
@@ -27,5 +27,5 @@ outputs:
   - usb
   - ble
 siblings:
-  - mango_left
-  - mango_right
+  - cornez_left
+  - cornez_right

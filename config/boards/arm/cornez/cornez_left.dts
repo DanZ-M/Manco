@@ -1,4 +1,4 @@
-#include "mango.dts"
+#include "cornez.dts"
 
 &kscan0 {
     col-gpios

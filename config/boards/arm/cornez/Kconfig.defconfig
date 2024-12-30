@@ -1,7 +1,7 @@
-if BOARD_MANGO_LEFT
+if BOARD_CORNEZ_LEFT
 
 	config ZMK_KEYBOARD_NAME
-	default "Mango"
+	default "CorNeZ"
 
 	config ZMK_SPLIT_BLE_ROLE_CENTRAL
     default y
@@ -9,21 +9,54 @@ if BOARD_MANGO_LEFT
 	config ZMK_USB
 	default y
 
-endif # BOARD_MANGO_LEFT
+endif # BOARD_CORNEZ_LEFT
 
-if BOARD_MANGO_RIGHT
+if BOARD_CORNEZ_RIGHT
 
 	config ZMK_KEYBOARD_NAME
-	default "Mango right"
+	default "CorNeZ right"
 
-endif # BOARD_MANGO_RIGHT
+endif # BOARD_CORNEZ_RIGHT
 
-if BOARD_MANGO_LEFT || BOARD_MANGO_RIGHT
+if BOARD_CORNEZ_LEFT || BOARD_CORNEZ_RIGHT
 
 	config BOARD
-		default "mango"
+		default "CorNeZ"
 
 	config ZMK_SPLIT
+		default y
+
+if ZMK_BACKLIGHT
+
+       config PWM
+         default y
+
+       config LED_PWM
+         default y
+
+endif # ZMK_BACKLIGHT
+
+if ZMK_RGB_UNDERGLOW
+
+	 config SPI
+    	 default y
+
+	 config WS2812_STRIP
+    	 default y
+
+endif # ZMK_RGB_UNDERGLOW
+
+if USB_DEVICE_STACK
+
+		config USB_NRFX
+			default y
+
+	endif # USB_DEVICE_STACK
+
+	config BT_CTLR
+	default BT
+
+	config ZMK_BLE
 		default y
 
 	config ZMK_DISPLAY
@@ -49,17 +82,17 @@ if BOARD_MANGO_LEFT || BOARD_MANGO_RIGHT
 
 		config LV_HOR_RES_MAX
 			int "Max horizontal resolution"
-			default 160
+			default 128
 
 		config LV_VER_RES_MAX
 			int "Max vertical resolution"
-			default 68
+			default 32
 
-		config SPI
-			default y
+		config I2C
+            default y
 
-		config LS0XX
-			default y
+        config SSD1306
+            default y
 
 		config LV_Z_BITS_PER_PIXEL
 			default 1
@@ -69,29 +102,16 @@ if BOARD_MANGO_LEFT || BOARD_MANGO_RIGHT
 		endchoice
 
 		config LV_DPI_DEF
-			default 30
+			default 148
 
 		config LV_Z_VDB_SIZE
-			default 16
+			default 64
 
 		choice ZMK_DISPLAY_STATUS_SCREEN
 			default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
 		endchoice
 
 	endif # ZMK_DISPLAY
-
-	if USB_DEVICE_STACK
-
-		config USB_NRFX
-			default y
-
-	endif # USB_DEVICE_STACK
-
-	config BT_CTLR
-	default BT
-
-	config ZMK_BLE
-		default y
 
 	menuconfig CUSTOM_WIDGET_BATTERY_STATUS
 		bool "custom battery status widget"
@@ -131,4 +151,4 @@ if BOARD_MANGO_LEFT || BOARD_MANGO_RIGHT
 		
 	endif # CUSTOM_WIDGET_PET_STATUS
 
-endif # BOARD_MANGO_LEFT || BOARD_MANGO_RIGHT
+endif # BOARD_CORNEZ_LEFT || BOARD_CORNEZ_RIGHT
