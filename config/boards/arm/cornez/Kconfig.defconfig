@@ -26,6 +26,12 @@ if BOARD_CORNEZ_LEFT || BOARD_CORNEZ_RIGHT
 	config ZMK_SPLIT
 		default y
 
+        config BT_CTLR
+	        default BT
+
+	config ZMK_BLE
+		default y
+
 if ZMK_BACKLIGHT
 
        config PWM
@@ -53,11 +59,6 @@ if USB_DEVICE_STACK
 
 	endif # USB_DEVICE_STACK
 
-	config BT_CTLR
-	default BT
-
-	config ZMK_BLE
-		default y
 
 	config ZMK_DISPLAY
 		select LV_USE_CONT
