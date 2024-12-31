@@ -11,6 +11,10 @@ endif()
 
 zephyr_library()
 
+
+zephyr_library_sources(mpu6050.c)
+zephyr_library_sources_ifdef(CONFIG_MPU6050_TRIGGER mpu6050_trigger.c)
+
 if(CONFIG_ZMK_DISPLAY)
   if(CONFIG_CUSTOM_WIDGET_BATTERY_STATUS)
     zephyr_library_sources(widgets/icons/battery_status.c)
