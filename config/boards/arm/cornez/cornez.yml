@@ -1,0 +1,24 @@
+identifier: corned
+name: Corned
+type: keyboard
+url: N/A
+arch: arm
+ toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+  ram: 40
+supported:
+  - adc
+  - usb_device
+  - ble
+  - ieee802154
+  - pwm
+  - watchdog
+  - gpio
+  - i2c
+  - spi
+  - nvs
+  - can
+  - kscan
+  - counter
