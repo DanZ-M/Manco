@@ -3,6 +3,19 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
+
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+#include <dt-bindings/zmk/pointing.h>
+
+
+
+
+#define MOVE_DOWN DW
+#define MOVE_UP UP
+#define MOVE_LEFT LH
+#define MOVE_RIGHT RH
+
 #define BASE 0
 #define GAME 1
 #define NUM  2
@@ -94,10 +107,10 @@ numbers_layer {
 navigation_layer {
     label = "NAV";
     bindings = <
-        &trans    &out OUT_TOG &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &tog GAME          &bt BT_NXT  &none       &kp UP      &none       &kp F12     &trans      
-        &trans     &bt BT_CLR  &trans       &trans      &trans       &none              &none       &kp LEFT    &kp DOWN    &kp RIGHT   &kp F11     &trans      
-        &trans    &mt LSHFT F1 &kp F2       &kp F3      &kp F4       &kp F5             &kp F6      &kp F7      &kp F8      &kp F9    &mt RSHFT F10 &trans      
-                                            &trans      &trans       &trans             &trans      &trans      &trans      
+        &trans    &out OUT_TOG &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &tog GAME           &bt BT_NXT  &none       &kp UP      &none       &kp F12     &trans      
+        &trans     &bt BT_CLR  &trans       &mmv UP      &trans     &msc SCRL_UP         &none       &kp LEFT    &kp DOWN    &kp RIGHT   &kp F11     &trans      
+        &trans    &mt LSHFT F1 &mmv LH      &mmv DW      &mmv RH    &msc SCRL_DOWN       &kp F6      &kp F7      &kp F8      &kp F9    &mt RSHFT F10 &trans      
+                                            &trans       &mkp LCLK    &trans             &trans      &trans      &trans      
     >;
 };
 
